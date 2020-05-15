@@ -1,0 +1,9 @@
+curl -v localhost:8080/harris-challenge/machines
+
+curl -v -X POST localhost:8080/harris-challenge/machines -H 'Content-type:application/json' -d '{"name": "test machine", "id": "001b7d98-eaec-4267-8b64-b7499b42cb4d"}'
+
+curl -v localhost:8080/harris-challenge/machines/001b7d98-eaec-4267-8b64-b7499b42cb4d
+
+curl -X PUT localhost:8080/harris-challenge/machines/001b7d98-eaec-4267-8b64-b7499b42cb4d -H 'Content-type:application/json' -d '{"name": "test machine updated", "id": "001b7d98-eaec-4267-8b64-b7499b42cb4d"}'
+
+curl -X DELETE localhost:8080/harris-challenge/machines/001b7d98-eaec-4267-8b64-b7499b42cb4d

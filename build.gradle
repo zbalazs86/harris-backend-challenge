@@ -1,0 +1,38 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.7.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'hu.harris'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.flywaydb:flyway-core'
+	
+	runtimeOnly 'org.postgresql:postgresql'
+	
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.7'
+	
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    
+	testImplementation group: 'org.hamcrest', name: 'hamcrest-library', version: '2.2'
+	testImplementation group: 'com.jayway.jsonpath', name: 'json-path', version: '2.4.0'
+	testRuntime group: 'com.h2database', name: 'h2', version: '1.4.200'
+}
+
+test {
+	useJUnitPlatform()
+}
